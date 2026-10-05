@@ -40,12 +40,13 @@
 - P01 gặp rào cản trước khi tra (không có thời gian trong lớp, ngại hỏi), còn người của Khang gặp rào cản trong khi tra (chuyển ngữ cảnh, AI sai). Hai điểm rào cản khác nhau.
 - Chưa ai nói thẳng "không biết mình thiếu khái niệm nền nào". Chỉ có một câu mơ hồ: người của Khang nói phần khó nhất là "tìm được đúng cái phần kiến thức mà mình đang vướng mắc". Câu này có thể là tín hiệu yếu cho A (khó xác định chỗ vướng), nhưng trả lời cho câu hỏi "phần nào khó nhất" và không kiểm tra kiến thức nền, nên chưa dùng làm evidence cho A.
 - Hậu quả chỉ có một nguồn, và nguồn đó nằm sau câu hỏi dẫn dắt.
+- Người của Khang nói vẫn tiếp tục tìm cho đến khi hiểu "để mình có thể đi đến các cái phần khác". Nghĩa là họ không bỏ phần chưa hiểu lại phía sau, nên lời kể này cho thấy bài sau bị trễ chứ chưa cho thấy lỗ hổng kiến thức tích tụ. Chỉ P01 có hành vi trì hoãn (ghi lại để xem sau), nhưng P01 chưa kể phần ghi lại đó có được xem lại hay không.
 
 **Điều gì vẫn chỉ là suy đoán của nhóm?**
 - A (thiếu kiến thức nền, không xác định được khái niệm nào) chưa có evidence ở cả ba note.
 - B (cách giải thích của bài chưa phù hợp) chưa có evidence trực tiếp. Người của Khang cần mô tả nhiều ngữ cảnh cho AI, nhưng đó là ma sát của công cụ bên ngoài, chưa chắc là lỗi của bài giảng.
 - Mức độ phổ biến: mỗi note là một người, "nhiều người cũng giống mình" (P01) chưa được kiểm chứng.
-- Hậu quả thật với bài học và tiến độ (chỉ có một lời kể sau câu hỏi dẫn dắt).
+- Chuỗi hậu quả: mất thêm thời gian → trì hoãn việc làm rõ → kiến thức chưa hiểu tích tụ thành lỗ hổng → lâu dài chậm các bài sau. Mới có evidence cho hai mắt xích đầu (mức yếu), chưa note nào kể về lỗ hổng kiến thức tích tụ.
 - Việc kiến thức không đọng lại nên phải tra lặp (D, chỉ có từ P1).
 
 **Hypothesis Problem nào đủ cụ thể để làm điểm xuất phát?**
@@ -56,11 +57,20 @@
 
 ## 3. Chốt Hypothesis Problem
 
-> Khi **đang học (trên lớp hoặc trực tuyến) và gặp phần chưa hiểu trong lúc bài giảng vẫn tiếp tục**, **học viên** gặp khó khăn trong việc **làm rõ phần đó ngay trong ngữ cảnh bài học** vì **phải rời luồng bài sang công cụ bên ngoài (chụp màn hình, chuyển tab, tự mô tả lại ngữ cảnh) hoặc ghi lại để xem sau**, dẫn đến **mất thêm thời gian, việc làm rõ bị trì hoãn và các bài sau có thể chậm trễ**.
+> Khi **đang học (trên lớp hoặc trực tuyến) và gặp phần chưa hiểu trong lúc bài giảng vẫn tiếp tục**, **học viên** gặp khó khăn trong việc **làm rõ phần đó ngay trong ngữ cảnh bài học** vì **phải rời luồng bài sang công cụ bên ngoài (chụp màn hình, chuyển tab, tự mô tả lại ngữ cảnh) hoặc ghi lại để xem sau**. Quá trình này **làm mất thêm thời gian và trì hoãn việc làm rõ, khiến những kiến thức chưa hiểu dần tích tụ, tạo thành các lỗ hổng kiến thức và lâu dài làm chậm tiến độ học các bài tiếp theo**.
 
-*(Phần "các bài sau có thể chậm trễ" chỉ có một nguồn và nằm sau câu hỏi dẫn dắt, nên vẫn là giả thuyết.)*
+**Consequence được viết thành một chuỗi, mỗi mắt xích có mức evidence khác nhau:**
 
-**Khác với bản nháp trước khi có note của Khang:** nhóm bỏ barrier "kiến thức đã tra không đọng nên phải tra lại" khỏi câu chính (chỉ có từ P1, và P1 nói cách xử lý không mất thời gian), thay bằng barrier "rời luồng và chuyển ngữ cảnh" có từ cả ba note. D được giữ ở danh sách điều chưa chứng minh.
+| Mắt xích của consequence | Evidence hiện có | Mức |
+|---|---|---|
+| Mất thêm thời gian | Người của Khang: hiểu được nhưng "mất nhiều thời gian hơn" (sau câu hỏi dẫn dắt). P01: không có thời gian tìm hiểu sâu khi phải làm bài tập (có điều kiện). | Yếu |
+| Trì hoãn việc làm rõ | P01: bài giảng tiếp tục thì ghi lại để xem sau. Chưa biết phần ghi lại có được xem lại không. | Yếu |
+| Kiến thức chưa hiểu tích tụ thành lỗ hổng | Chưa note nào kể. Người của Khang còn nói vẫn tìm cho đến khi hiểu mới sang phần khác. | **Chưa có (giả thuyết)** |
+| Lâu dài chậm tiến độ các bài tiếp theo | Người của Khang: mất thời gian "sẽ kéo theo các cái bài học khác bị chậm trễ" (sau câu hỏi dẫn dắt). Đây là chậm vì tốn thời gian, chưa phải chậm vì lỗ hổng tích tụ. | Yếu |
+
+**Khác với bản nháp trước:**
+- Khi có note của Khang, nhóm bỏ barrier "kiến thức đã tra không đọng nên phải tra lại" khỏi câu chính (chỉ có từ P1, và P1 nói cách xử lý không mất thời gian), thay bằng barrier "rời luồng và chuyển ngữ cảnh" có từ cả ba note. D được giữ ở danh sách điều chưa chứng minh.
+- Consequence được nhóm viết lại thành chuỗi trên, thêm hai mắt xích "kiến thức tích tụ thành lỗ hổng" và "lâu dài chậm các bài sau". Hai mắt xích này là suy luận của nhóm, cần kiểm chứng ở vòng sau.
 
 **Hypothesis Problem nhóm tiếp tục:** câu trên (nháp, nhóm đọc lại và chỉnh).
 
@@ -71,7 +81,8 @@
 
 **Điều vẫn chưa được chứng minh:**
 - Mức độ phổ biến: mỗi note chỉ một người, chưa biết có đại diện không.
-- Hậu quả thật với tiến độ: chỉ có một lời kể, sau câu hỏi dẫn dắt.
+- Kiến thức chưa hiểu có thật sự tích tụ thành lỗ hổng không: chưa note nào kể về việc bỏ lại phần chưa hiểu rồi bị ảnh hưởng ở bài sau.
+- Hậu quả "chậm tiến độ các bài sau": chỉ có một lời kể, sau câu hỏi dẫn dắt, và lời kể đó là chậm vì tốn thời gian chứ chưa phải vì lỗ hổng kiến thức.
 - A và B: chưa có dữ liệu hỗ trợ hoặc bác bỏ ở cả ba note.
 - Bối cảnh: trên lớp (P01) hay trực tuyến (Khang) chưa thống nhất, P1 chưa nêu.
 - Vì sao P1 coi cách xử lý là nhanh còn người của Khang coi là tốn thời gian.
@@ -79,10 +90,10 @@
 
 ## 4. Kiểm tra GATE 1 — Evidence continuity
 
-- [x] Có đủ năm thành phần: user (học viên), situation (đang học, bài giảng tiếp tục), job (làm rõ phần chưa hiểu ngay trong ngữ cảnh bài), barrier (rời luồng, chuyển ngữ cảnh, hoặc ghi lại xem sau), consequence (mất thêm thời gian, trì hoãn, trễ bài sau).
+- [x] Có đủ năm thành phần: user (học viên), situation (đang học, bài giảng tiếp tục), job (làm rõ phần chưa hiểu ngay trong ngữ cảnh bài), barrier (rời luồng, chuyển ngữ cảnh, hoặc ghi lại xem sau), consequence (mất thêm thời gian và trì hoãn việc làm rõ, kiến thức chưa hiểu tích tụ thành lỗ hổng, lâu dài chậm các bài tiếp theo).
 - [x] Có ít nhất một observation Day 17: người của Khang chụp màn hình hỏi AI về Double Diamond "ngày hôm qua"; P01 ghi lại để xem sau; P1 phải search lại.
 - [x] Có ít nhất một điều chưa biết (xem danh sách ở mục 3).
-- [ ] Điểm yếu còn lại: consequence chỉ có một nguồn và sau câu hỏi dẫn dắt. Cần hỏi lại ở vòng sau bằng câu hỏi trung tính.
+- [ ] Điểm yếu còn lại: consequence là một chuỗi mà chỉ hai mắt xích đầu (mất thời gian, trì hoãn) có evidence yếu. Mắt xích "tích tụ thành lỗ hổng kiến thức" chưa có evidence, và "chậm các bài sau" chỉ có một nguồn sau câu hỏi dẫn dắt. Gate 1 chỉ yêu cầu hypothesis có đủ thành phần và chỉ ra điều chưa biết, nên nhóm vẫn qua được nếu ghi rõ các mắt xích này là giả thuyết, và cần hỏi lại ở vòng sau bằng câu hỏi trung tính.
 
 ## 5. Việc cần làm tiếp
 
@@ -90,3 +101,4 @@
 2. Nhóm thống nhất định nghĩa Pain A/B/C/D và cách gọi chung (hiện Phát khác Bình và Khang).
 3. Thống nhất bối cảnh học: trên lớp hay trực tuyến, và ghi rõ trong Hypothesis Problem.
 4. Ở vòng sau, hỏi theo sự kiện cụ thể và tránh câu dẫn dắt: một buổi học gần đây, đã làm gì, kết quả ra sao, hậu quả với tiến độ. Có thể hỏi riêng một probe về kiến thức tiên quyết để kiểm tra A.
+5. Thêm probe để kiểm tra chuỗi consequence: phần đã ghi lại hoặc bỏ qua sau đó có được quay lại không, khi nào; có lần nào phần chưa hiểu từ trước khiến bài sau khó theo hơn không; kể một lần cụ thể. Nếu không ai kể được, nhóm nên bỏ hoặc làm nhẹ hai mắt xích cuối của consequence.
