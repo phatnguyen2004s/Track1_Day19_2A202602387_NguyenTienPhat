@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VLearn · Option C1 — Chọn văn bản — Micro-prototype</title>
+  <style>
+:root{font-family:Segoe UI,Arial,sans-serif;color:#23394c;background:#f3f6fa;font-size:14px;--blue:#2860aa;--line:#e2e8ef;--muted:#768597}*{box-sizing:border-box}body{margin:0}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer;border:0;border-radius:8px;padding:11px 15px;font-weight:600}button:focus-visible,a:focus-visible{outline:3px solid #75a9ef;outline-offset:3px}button:disabled{opacity:.45;cursor:not-allowed}[hidden]{display:none!important}.topbar{height:72px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 32px;gap:28px}.brand{text-decoration:none;font-size:27px;font-weight:800;color:var(--blue);letter-spacing:-1.2px}.brand span{color:#243e59}.course{border-left:1px solid var(--line);padding-left:28px;color:#65758a}.prototype-label{margin-left:auto;color:#738399;font-size:12px}.avatar{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#e7effb;color:var(--blue);font-weight:700}main{max-width:1600px;margin:auto;padding:26px 28px}.testbar{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:24px}.eyebrow{font-size:10px;letter-spacing:1.5px;font-weight:700;color:#7b8b9e}h1{font-size:22px;margin:8px 0 0;letter-spacing:-.5px}h2{font-size:19px;margin:7px 0}h3{margin:12px 0}.test-controls{display:flex;gap:12px;align-items:center}.quiet{color:#65758a;background:transparent;font-size:12px}.steps{display:flex;justify-content:center;align-items:center;gap:18px;font-size:12px;margin:0 0 26px;color:#97a4b4}.steps span{display:flex;align-items:center;gap:9px}.steps span.current{color:var(--blue)}.steps span.finished{color:#32745a}.steps i{width:75px;height:1px;background:#d8e0e9}.workspace{display:grid;grid-template-columns:190px minmax(540px,1fr);align-items:start;gap:20px}.workspace.panel-open{grid-template-columns:170px minmax(500px,1fr) 380px}.curriculum{padding:20px 5px}.curriculum h2{margin-top:14px}.muted{color:var(--muted);font-size:12px}.lesson{display:flex;gap:12px;font-size:12px;padding:14px 9px;margin:6px 0;border-radius:7px;color:#8795a5}.lesson.active{background:#e4edf9;color:var(--blue);font-weight:600}.lesson.done{color:#5f7e77}.sidebar-note{border-top:1px solid #dce4ee;margin:35px 8px 28px;padding-top:20px;font-weight:600;font-size:12px}.sidebar-note p{line-height:1.8;color:#7c8c9d;font-weight:400}.progress-label{font-size:11px;color:#8393a5;display:flex;justify-content:space-between;padding:0 8px}.progress{height:4px;margin:10px 8px;background:#e1e7ef;border-radius:4px}.progress span{display:block;width:66%;height:100%;background:#6091cb;border-radius:4px}.learning{background:white;border:1px solid var(--line);border-radius:12px;padding:22px;min-width:0}.lesson-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.badge{font-size:10px;color:var(--blue);padding:6px 10px;background:#edf3fc;border-radius:20px}.slide{background:#faf9f5;border:1px solid #e4e2dc;border-radius:9px;padding:23px 24px 20px;transition:box-shadow .2s}.slide h3{font-size:clamp(20px,2.1vw,31px);line-height:1.35;letter-spacing:-.7px;margin:0;color:#17252d}.slide em{font-style:normal;color:#c65b42}.slide strong{color:#32745a}.slide svg{display:block;width:100%;margin:12px 0 2px;user-select:none}.stages{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.stages h4{font-size:12px;letter-spacing:1px;margin:4px 0 8px;color:#948f85}.stages div:nth-child(n+3) h4{color:#32745a}.stages p{font-size:11px;line-height:1.9;color:#667168;margin:0}.slide-footer{display:flex;justify-content:space-between;font-size:10px;color:#93a0ae;margin:12px 0 24px}.task{display:flex;gap:13px;background:#f4f7fc;border-radius:9px;padding:17px;font-size:12px;line-height:1.7}.task p{margin:5px 0 0;color:#65758a}.task-icon{background:#e2eafa;color:var(--blue);border-radius:50%;width:26px;height:26px;flex-shrink:0;display:grid;place-items:center;font-weight:700}.bottom-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:20px}.primary{background:var(--blue);color:white}.primary:hover{background:#1e4d8c}.secondary{background:white;border:1px solid #d5dfea;color:#48617c}.ai-panel{background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden}.panel-heading{padding:19px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.panel-heading>div{display:flex;align-items:center;gap:9px}.ai-mark{color:var(--blue);font-size:20px}.ai-tag{font-size:9px;color:#5685ba;background:#edf3fc;padding:4px 6px;border-radius:4px}.icon-button{padding:0;background:transparent;color:#8291a1;font-size:24px;line-height:1;width:26px;height:26px}#panel-content{padding:20px;max-height:650px;overflow:auto;scroll-behavior:smooth}#panel-content h3{font-size:20px;line-height:1.4}#panel-content p,#panel-content li{font-size:13px;line-height:1.8;color:#5d6f82}#panel-content ul{padding-left:19px}#panel-content li{margin:7px 0}#panel-content h4{margin:20px 0 8px;font-size:14px}.panel-intro{margin:0 0 18px}.context-card{font-size:12px;background:#f4f7fb;border:1px solid #e3eaf3;border-radius:8px;padding:13px;margin:14px 0;line-height:1.7;color:#65778c}.context-card b{color:#395875}label{display:block;font-size:12px;color:#596f87;font-weight:600;margin:14px 0 7px}textarea{font:inherit;line-height:1.6;width:100%;min-height:80px;resize:vertical;border:1px solid #d9e2ee;border-radius:8px;padding:10px;color:#38536e}textarea:focus{outline:2px solid #85abe0}.panel-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.panel-actions button{font-size:12px}.ai-limit{padding:14px 18px;background:#f8fafc;color:#8b98a7;font-size:10px;line-height:1.7;border-top:1px solid var(--line)}.select-guide{font-size:12px;color:var(--blue);margin:16px 0 10px}.region-buttons{display:flex;gap:6px;flex-wrap:wrap}.region-buttons button{background:white;border:1px solid #ccdbee;color:#476d9e;font-size:10px;padding:7px}.region-buttons button.chosen{background:#2860aa;color:white}.evidence{background:#f6f8fc;border-left:3px solid #91aed4;padding:13px;font-size:13px;margin:18px 0}.source-link{font-size:11px;padding:0;color:var(--blue);background:transparent;text-align:left}.takeaway{background:#edf5f0;border:1px solid #dbeadf;padding:14px;border-radius:8px;font-size:13px;color:#32745a}.takeaway p{margin-bottom:0}.status{font-size:12px;color:#547397;min-height:24px;padding-top:14px;text-align:center}.completed{text-align:center;background:white;border:1px solid var(--line);padding:46px;border-radius:12px}.completed>span{font-size:28px;color:#32745a}.completed p{color:#718397}.completed button{margin:12px 4px}.source-highlight{box-shadow:0 0 0 3px #8bb1e4}.simulation{font-size:11px;color:#8a98a9;border-top:1px solid var(--line);padding-top:12px;margin-top:16px}@media(max-width:1100px){.workspace.panel-open{grid-template-columns:minmax(460px,1fr) 350px}.curriculum{display:none}.workspace{grid-template-columns:1fr}.testbar{align-items:flex-start;flex-direction:column}.topbar{padding:0 24px}.workspace.panel-open .slide{padding:18px}}
+.variant-label{background:#e7effb;color:var(--blue);padding:10px 14px;border-radius:8px;font-size:12px;white-space:nowrap}.block-container{border-radius:6px}.block-selected{outline:2px solid #568ed0;outline-offset:4px}.block-picker{font-size:10px;padding:5px 8px;background:#e9f0fa;color:var(--blue);margin:8px 0}.block-picker.chosen{background:var(--blue);color:white}.selecting-region{cursor:crosshair;touch-action:none}.selecting-text h3,.selecting-text .stages{cursor:text}.selecting-text ::selection{background:#bcd7f7;color:#163d6b}#region-rect{pointer-events:none;fill:#2860aa22;stroke:#2860aa;stroke-width:2;stroke-dasharray:6 3;vector-effect:non-scaling-stroke}.region-preview{width:100%;height:150px;background:#faf9f5;border:1px solid #ccdbee;border-radius:5px;margin-top:10px}#selected-text{white-space:pre-line}body:not([data-variant="region"]) .region-buttons{display:none}body:not([data-variant="text"]) .text-guide,body:not([data-variant="region"]) .region-guide,body:not([data-variant="block"]) .block-guide{display:none}.prototype-list{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}.prototype-card{display:block;text-decoration:none;color:#23394c;background:white;border:1px solid var(--line);border-radius:12px;padding:28px}.prototype-card:hover{border-color:#719acf}.prototype-card p{color:#758598;line-height:1.8;font-size:13px}.prototype-card .open{display:inline-block;background:var(--blue);color:white;padding:10px 15px;border-radius:7px;margin-top:12px}.directory{max-width:1100px;margin:30px auto}
+/* Hai slide tiếp theo, dựng lại từ tài liệu bài học. */
+.followup-slide{min-height:470px;aspect-ratio:16/9;padding:30px 32px;color:#202a25}
+.followup-slide h3{font-size:clamp(23px,2.7vw,36px)}
+.evidence-transition{display:grid;grid-template-columns:1fr 80px 1fr;align-items:center;gap:28px;margin:140px 10px 75px}
+.slide-day{font-size:12px;letter-spacing:1px;color:#8a9087;margin-bottom:14px}
+.evidence-transition h4{font-size:22px;margin:0 0 14px;color:#202a25}
+.evidence-transition p{font-size:16px;line-height:1.6;color:#83867c;margin:0 0 15px}
+.solution-column h4{color:#32745a}.slide-tags{display:flex;gap:7px;flex-wrap:wrap}.slide-tags span{border:1px solid #cfd2c9;padding:6px 10px;font-size:13px;color:#73796e}.solution-column .slide-tags span{background:#e8f2ec;color:#32745a;border-color:#b7cabe}
+.transition-arrow{font-size:60px;font-weight:300;text-align:center;color:#313931;line-height:1}
+.slide-subtitle{font-size:17px;color:#83867c;margin:10px 0 18px}.scenario{padding:13px 16px;border:1px solid #d0d3ca;background:white;font-size:15px;line-height:1.6}.scenario>span{font-size:12px;color:#8e9389;letter-spacing:.8px;margin-right:10px}
+.solution-comparison{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:14px 0;margin-top:50px;margin-left:-14px;width:calc(100% + 28px);font-size:13px;line-height:1.5}.solution-comparison th,.solution-comparison td{text-align:left;font-weight:400;vertical-align:top;padding:10px 0;border-bottom:1px solid #d4d8cf}.solution-comparison thead th{border-bottom:1px solid #555e53;font-size:16px;font-weight:600;padding-top:0;padding-bottom:15px}.solution-comparison th:first-child{width:16%}.solution-comparison tbody th{font-size:10px;letter-spacing:.5px;color:#8a9087}.solution-comparison tbody tr:last-child td{color:#7d8579}.mechanism-letter{font-family:Georgia,serif;font-size:22px;font-weight:400;color:#8b9387;margin-right:6px}.mini-window{border:1px solid #d0d5ca;margin-top:8px;background:#fff;min-height:96px}.window-bar{border-bottom:1px solid #d0d5ca;font-size:8px;color:#8a9676;padding:2px 7px;letter-spacing:1px;height:16px}.mini-body{padding:7px;min-height:77px;font-size:12px;font-weight:400}.mock-lines{height:10px;border-top:3px solid #e1e3da;border-bottom:3px solid #e1e3da;margin-bottom:18px}.mock-help{display:block;width:48px;margin-left:auto;text-align:center;border:1px solid #59604f;padding:3px}.mock-prompt{padding:6px 4px;border:1px solid #9aafbe;white-space:normal;font-size:11px}.mock-prompt.collaborative{background:#eaf1f8}.mock-prompt.proactive{background:#faf0d5;border-color:#c7af67}.mock-actions{display:flex;gap:5px;margin-top:5px}.mock-actions span{flex:1;border:1px solid #d0d5ca;text-align:center;color:#8b9387;padding:3px;font-size:11px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:1100px){.followup-slide{padding:24px;min-height:430px}.evidence-transition{margin-top:110px;gap:18px}.solution-comparison{margin-top:35px;font-size:12px}.solution-comparison thead th{font-size:14px}}
+
+</style>
+</head>
+<body data-variant="text">
+  <header class="topbar"><a class="brand" href="index.html">V<span>Learn</span></a><span class="course">Thiết kế trải nghiệm Người – AI</span><span class="prototype-label">Bản kiểm thử · AI mô phỏng</span><div class="avatar">B</div></header>
+  <main>
+    <section class="testbar" aria-label="Micro-prototype Option C">
+      <div><div class="eyebrow">DAY 19 / MICRO-PROTOTYPE</div><h1>Làm rõ kiến thức, ngay trong bài học</h1></div>
+      <div class="test-controls"><span class="variant-label">Option C1 — Chọn văn bản</span><button id="reset" class="quiet">↺ Bắt đầu lại</button></div>
+    </section>
+    <div class="steps" aria-label="Tiến trình"><span data-step="1">01 <b>Bối cảnh chung</b></span><i></i><span data-step="2">02 <b>Tương tác với AI</b></span><i></i><span data-step="3">03 <b>Kết quả & quyết định</b></span></div>
+    <div class="workspace panel-open">
+      <aside class="curriculum"><div class="eyebrow">NỘI DUNG BÀI HỌC</div><h2>Double Diamond</h2><p class="muted">Từ vấn đề đến giải pháp</p><div class="lesson active" data-lesson="0">01 <span>Problem & solution</span></div><div class="lesson" data-lesson="1">02 <span>Từ pain đến solution</span></div><div class="lesson" data-lesson="2">03 <span>Nhiều cách giải</span></div><div class="sidebar-note">Mục tiêu bài học<p>Phân biệt bằng chứng về vấn đề và bằng chứng về giải pháp.</p></div><div class="progress-label">Tiến độ bài học <b id="lesson-progress">1 / 3</b></div><div class="progress"><span id="lesson-progress-bar" style="width:33.33%"></span></div></aside>
+      <section class="learning">
+        <div id="lesson-content">
+        <div class="lesson-heading"><div><div class="eyebrow">BÀI HỌC · DOUBLE DIAMOND</div><h2 id="lesson-heading-title">Evidence về problem & solution</h2></div><span class="badge">Đang học</span></div>
+        <div id="slide" class="slide">
+          <div id="title-block" class="block-container"><h3 id="slide-title">Evidence về <em>problem</em> không phải evidence về <strong>solution</strong></h3><button data-block="title-block" class="block-picker" hidden>Chọn khối này · Tiêu đề</button></div>
+          <div id="diagram-block" class="block-container"><svg id="diagram" viewBox="0 0 900 350" role="img" aria-labelledby="diagram-title diagram-desc">
+            <title id="diagram-title">Sơ đồ Double Diamond</title><desc id="diagram-desc">Discover mở rộng và Define thu hẹp để tìm đúng vấn đề; tại Chosen opportunity chuyển sang Develop mở rộng và Deliver thu hẹp để tìm đúng giải pháp.</desc>
+            <defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#b5b5ab"/></marker></defs>
+            <g stroke="#dedbd3" stroke-dasharray="5 5"><path d="M95 45V290M275 45V290M455 45V290M635 45V290M815 45V290"/></g>
+            <path d="M95 170 275 65 455 170 275 275Z" fill="#f6f4ef" stroke="#d8d5cd" stroke-width="2"/><path d="M455 170 635 65 815 170 635 275Z" fill="#deeee4" stroke="#32745a" stroke-width="2"/>
+            <g font-size="14" text-anchor="middle" fill="#918d82"><text x="185" y="35">Divergence</text><text x="365" y="35">Convergence</text></g><g font-size="14" text-anchor="middle" fill="#32745a"><text x="545" y="35">Divergence</text><text x="725" y="35">Convergence</text></g>
+            <g font-size="17" text-anchor="middle"><text x="181" y="107" fill="#918d82" transform="rotate(-30 181 107)">discover</text><text x="363" y="107" fill="#918d82" transform="rotate(30 363 107)">define</text><text x="543" y="107" fill="#32745a" transform="rotate(-30 543 107)">develop</text><text x="729" y="107" fill="#32745a" transform="rotate(30 729 107)">deliver</text></g>
+            <g text-anchor="middle"><text x="275" y="155" font-size="12" fill="#918d82">VIÊN KIM CƯƠNG 1</text><text x="275" y="179" font-size="21" fill="#827e74" font-weight="600">Finding the</text><text x="275" y="205" font-size="21" fill="#827e74" font-weight="600">PROBLEM</text><text x="635" y="155" font-size="12" fill="#32745a">VIÊN KIM CƯƠNG 2</text><text x="635" y="179" font-size="21" fill="#205944" font-weight="600">Finding the</text><text x="635" y="205" font-size="21" fill="#205944" font-weight="600">SOLUTION</text></g>
+            <circle cx="75" cy="170" r="8" fill="#ccc7bc"/><text x="75" y="147" font-size="14" text-anchor="middle" fill="#918d82">Pain</text><circle cx="455" cy="170" r="9" fill="#c85b40"/><text x="455" y="220" font-size="14" text-anchor="middle" fill="#c85b40" font-weight="600">Chosen</text><text x="455" y="239" font-size="14" text-anchor="middle" fill="#c85b40" font-weight="600">opportunity</text><circle cx="835" cy="170" r="9" fill="#32745a"/><text x="835" y="147" font-size="14" text-anchor="middle" fill="#32745a">Next</text>
+            <path d="M50 307H845" stroke="#b5b5ab" marker-end="url(#arrow)"/><text x="450" y="331" text-anchor="middle" font-size="13" fill="#918d82">Time</text><path d="M37 275V65" stroke="#b5b5ab" marker-start="url(#arrow)" marker-end="url(#arrow)"/><text x="22" y="170" transform="rotate(-90 22 170)" text-anchor="middle" font-size="13" fill="#918d82">Alternatives</text>
+            <rect id="region-rect" style="display:none"/>
+          </svg><button data-block="diagram-block" class="block-picker" hidden>Chọn khối này · Sơ đồ</button></div>
+          <div class="stages"><div id="discover-block" class="block-container"><h4>DISCOVER</h4><p>Problem interview<br>Past story<br>Behavior & workaround<br>Quan sát context</p><button data-block="discover-block" class="block-picker" hidden>Chọn khối này</button></div><div id="define-block" class="block-container"><h4>DEFINE</h4><p>Synthesis note<br>Pain pattern<br>Chọn opportunity<br>Learning Question</p><button data-block="define-block" class="block-picker" hidden>Chọn khối này</button></div><div id="develop-block" class="block-container"><h4>DEVELOP</h4><p>Diverge cơ chế<br>Standard / ++ / Wild<br>Micro-prototype<br>Multi-option A/B/C</p><button data-block="develop-block" class="block-picker" hidden>Chọn khối này</button></div><div id="deliver-block" class="block-container"><h4>DELIVER</h4><p>Prototype interview<br>Quan sát behavior<br>Compare trade-off<br>Next iteration</p><button data-block="deliver-block" class="block-picker" hidden>Chọn khối này</button></div></div>
+          <div id="selection-tools" hidden>
+            <p class="select-guide text-guide">Bôi đen phần chữ chưa hiểu ở tiêu đề hoặc mô tả giai đoạn.</p>
+            <p class="select-guide region-guide">Kéo chuột trên sơ đồ để khoanh vùng. Hoặc chọn một vùng nhanh:</p>
+            <p class="select-guide block-guide">Bấm “Chọn khối này” tại khối nội dung bạn muốn làm rõ.</p>
+            <div class="region-buttons"><button data-region="all">Toàn bộ sơ đồ</button><button data-region="problem">Discover → Define</button><button data-region="opportunity">Chosen opportunity</button><button data-region="solution">Develop → Deliver</button></div>
+          </div>
+        </div>
+        <section id="lesson-slide-2" class="slide followup-slide" hidden aria-labelledby="pain-solution-title">
+          <h3 id="pain-solution-title">Ta đã hiểu <em>pain</em>. Bây giờ đến lượt <strong>solution</strong></h3>
+          <div class="evidence-transition">
+            <div><div class="slide-day">DAY 17</div><h4>Problem evidence</h4><p>Tìm evidence về người dùng, tình huống và pain.</p><div class="slide-tags"><span>story</span><span>behavior</span><span>workaround</span></div></div>
+            <div class="transition-arrow" aria-label="Chuyển từ problem evidence sang solution evidence">⟶</div>
+            <div class="solution-column"><div class="slide-day">DAY 18</div><h4>Solution evidence?</h4><p>Khám phá các cách giải và tìm evidence cho bước tiếp theo.</p><div class="slide-tags"><span>options</span><span>experiment</span></div></div>
+          </div>
+        </section>
+        <section id="lesson-slide-3" class="slide followup-slide" hidden aria-labelledby="many-solutions-title">
+          <h3 id="many-solutions-title">Cùng một <em>pain</em> có thể dẫn tới nhiều cách giải</h3>
+          <p class="slide-subtitle">Cách nào phù hợp hơn — và trong điều kiện nào?</p>
+          <div class="scenario"><span>TÌNH HUỐNG</span> Người học vừa trả lời sai lần thứ hai và không biết tiếp tục thế nào.</div>
+          <table class="solution-comparison">
+            <caption class="sr-only">So sánh ba cơ chế hỗ trợ trong tình huống người học trả lời sai hai lần</caption>
+            <thead><tr><th scope="col"></th><th scope="col"><span class="mechanism-letter">A</span> User-led<div class="mini-window" aria-hidden="true"><div class="window-bar">● ● ●</div><div class="mini-body"><div class="mock-lines"></div><span class="mock-help">Help</span></div></div></th><th scope="col"><span class="mechanism-letter">B</span> Collaborative<div class="mini-window" aria-hidden="true"><div class="window-bar">● ● ●</div><div class="mini-body"><div class="mock-prompt collaborative">“Bạn đang lẫn hai công thức?”</div><div class="mock-actions"><span>Đúng</span><span>Không</span></div></div></div></th><th scope="col"><span class="mechanism-letter">C</span> Proactive<div class="mini-window" aria-hidden="true"><div class="window-bar">● ● ●</div><div class="mini-body"><div class="mock-prompt proactive">Sai 2 lần → ôn lại phần này?</div><div class="mock-actions"><span>Xem</span><span>Bỏ qua</span></div></div></div></th></tr></thead>
+            <tbody><tr><th scope="row">TRIGGER</th><td>Learner tự mở Help</td><td>AI hỏi khi thấy dấu hiệu</td><td>AI tự phát hiện, tự mở</td></tr><tr><th scope="row">USER QUYẾT GÌ</th><td>Chọn loại trợ giúp</td><td>Xác nhận hoặc sửa chẩn đoán</td><td>Duyệt, bỏ qua hoặc sửa</td></tr><tr><th scope="row">ĐÁNH ĐỔI</th><td>Phải tự biết mình cần gì</td><td>Thêm một bước hỏi–đáp</td><td>Dễ gián đoạn, dễ bị nghi</td></tr></tbody>
+          </table>
+        </section>
+        <div class="slide-footer"><span id="slide-counter">Slide 01 / 03 · Double Diamond</span><span>Đọc → Làm rõ → Tiếp tục</span></div>
+        <div id="task" class="task"><span class="task-icon">?</span><div><b>Nhiệm vụ của bạn</b><p>Bạn chưa hiểu vì sao evidence về problem không phải evidence về solution. Hãy dùng hỗ trợ AI để làm rõ ngay trong bài học, đọc ví dụ và quyết định có tiếp tục hay cần giải thích lại.</p></div></div>
+        <div class="bottom-actions"><button id="previous-slide" class="secondary" hidden>← Slide trước</button><button id="continue" class="primary">Tiếp tục bài học →</button></div>
+        </div>
+        <section id="completed" class="completed" hidden><span>✓</span><h2>Bạn đã hoàn thành 3 slide</h2><p>Điểm kết thúc của lượt thử. Bạn có thể xem lại nội dung hoặc bắt đầu lại cho lượt thử tiếp theo.</p><button id="review-slides" class="secondary">← Xem lại slide cuối</button><button id="restart-complete" class="primary">Bắt đầu lại lượt này</button></section>
+      </section>
+      <aside id="ai-panel" class="ai-panel" aria-label="Hỗ trợ AI"><div class="panel-heading"><div><span class="ai-mark">✦</span><b>Trợ lý học tập</b><span class="ai-tag">AI</span></div></div><div id="panel-content"></div><div class="ai-limit">AI có thể thiếu ngữ cảnh hoặc giải thích chưa đúng. Hãy đối chiếu slide và tài liệu; nội dung không thay thế giảng viên.</div></aside>
+    </div>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+  </main>
+  <template id="answer-template"><div class="answer">
+    <div class="eyebrow">GIẢI THÍCH NGẮN</div><h3>Double Diamond</h3>
+    <p>Double Diamond là mô hình thiết kế giúp nhóm đi từ việc tìm hiểu nhu cầu thực tế của người dùng đến phát triển và kiểm chứng giải pháp. Mô hình gồm hai “viên kim cương”, đại diện cho hai mục tiêu chính: tìm đúng vấn đề và tìm đúng giải pháp.</p>
+    <p>Trong mỗi viên kim cương, nhóm sử dụng hai cách tư duy:</p><ul><li><b>Divergence – Mở rộng:</b> Thu thập nhiều thông tin, góc nhìn hoặc phương án khác nhau.</li><li><b>Convergence – Thu hẹp:</b> Phân tích bằng chứng, so sánh và lựa chọn hướng phù hợp nhất.</li></ul>
+    <h4>Viên kim cương 1 – Tìm đúng vấn đề</h4><ul><li><b>Discover – Khám phá:</b> Nhóm tìm hiểu trải nghiệm thực tế của người dùng thông qua phỏng vấn, quan sát hành vi, bối cảnh và các cách xử lý hiện tại. Mục tiêu là thu thập bằng chứng thay vì vội đưa ra giải pháp.</li><li><b>Define – Xác định:</b> Nhóm tổng hợp các bằng chứng đã thu thập, tìm pain pattern và lựa chọn vấn đề quan trọng cần giải quyết. Kết quả là một Hypothesis Problem rõ ràng về người dùng, tình huống, nhiệm vụ và khó khăn.</li></ul>
+    <h4>Viên kim cương 2 – Tìm đúng giải pháp</h4><ul><li><b>Develop – Phát triển:</b> Nhóm tạo nhiều solution hypotheses khác nhau cho cùng một vấn đề. Các phương án cần khác nhau về cơ chế giải quyết, vai trò của người dùng và AI hoặc thời điểm hỗ trợ, thay vì chỉ khác màu sắc và giao diện.</li><li><b>Deliver – Kiểm chứng:</b> Nhóm đưa các prototype cho người dùng thử, quan sát hành vi và so sánh trade-off giữa các phương án. Kết quả thử nghiệm giúp nhóm xác định thay đổi tiếp theo và những giả định vẫn chưa được chứng minh.</li></ul>
+    <div class="evidence"><b>Vì sao hai loại evidence khác nhau?</b><p>Evidence về problem cho thấy người dùng gặp khó khăn gì và trong bối cảnh nào. Evidence về solution cho thấy một phương án cụ thể có giúp họ hay không. Việc quan sát học viên phải chuyển tab chưa chứng minh rằng hỗ trợ AI sẽ hiệu quả; cần thử prototype và quan sát hành vi sử dụng.</p><button class="source-link" id="source">↗ Đối chiếu sơ đồ và Chosen opportunity</button></div>
+    <div class="eyebrow">VÍ DỤ MINH HỌA</div><p>Nhóm quan sát thấy học viên thường phải chuyển tab, chụp màn hình hoặc ghi lại nội dung khi gặp phần chưa hiểu trong bài giảng (<b>Discover</b>). Nhóm xác định việc rời khỏi bài học làm gián đoạn luồng học và khiến kiến thức chưa hiểu tích tụ (<b>Define</b>).</p><p>Sau đó, nhóm tạo ba cơ chế hỗ trợ AI: học viên yêu cầu thêm ví dụ, AI phát hiện việc dừng lâu và đề nghị hỗ trợ, hoặc học viên chọn trực tiếp phần chưa hiểu để yêu cầu giải thích (<b>Develop</b>). Cuối cùng, nhóm cho học viên thử cả ba phương án, quan sát khả năng hoàn thành nhiệm vụ và so sánh mức độ chủ động, chính xác và dễ kiểm soát của từng phương án (<b>Deliver</b>).</p>
+    <div class="takeaway"><b>Ý chính cần nhớ</b><p>Double Diamond giúp nhóm tránh chọn giải pháp quá sớm. Nhóm cần mở rộng và thu hẹp để tìm đúng vấn đề trước, sau đó tiếp tục mở rộng và thu hẹp để tìm, thử nghiệm và cải thiện giải pháp phù hợp.</p></div>
+  </div></template>
+  <script>
+'use strict';
+const $ = selector => document.querySelector(selector);
+const $$ = selector => [...document.querySelectorAll(selector)];
+const variant = document.body.dataset.variant;
+const labels = { text: 'C1 · Chọn văn bản', region: 'C2 · Khoanh vùng sơ đồ', block: 'C3 · Chọn khối nội dung' };
+const instructions = {
+  text: 'Bôi đen một đoạn văn bản trong slide bên trái (ví dụ tiêu đề hoặc mô tả giai đoạn). Kiểm tra phần được chọn, rồi gửi yêu cầu.',
+  region: 'Nhấn giữ và kéo chuột trên sơ đồ bên trái để khoanh phần chưa hiểu. Kiểm tra ảnh vùng chọn, rồi gửi yêu cầu. Bạn cũng có thể dùng nút chọn vùng nhanh.',
+  block: 'Bấm nút “Chọn khối này” ở tiêu đề, sơ đồ hoặc mô tả một giai đoạn. Kiểm tra toàn bộ nội dung khối, rồi gửi yêu cầu.'
+};
+const questionHint = 'Ví dụ: Cho tôi một ví dụ cụ thể, hoặc giải thích kỹ hơn vì sao hai loại evidence khác nhau…';
+let step = 2, selected = '', question = '', selectionBox = null, dragStart = null, previousBox = null, activePointer = null;
+let lessonIndex = 0;
+const lessonTitles = ['Evidence về problem & solution', 'Từ pain đến solution', 'Cùng một pain, nhiều cách giải'];
+function status(message) { $('#status').textContent = message; }
+function bind(id, action) { const el = document.getElementById(id); if (el) el.onclick = action; }
+function showPanel() {
+  $('#ai-panel').hidden = false;
+  $('.workspace').classList.add('panel-open');
+}
+function updateSteps() {
+  $$('[data-step]').forEach(el => { const n = Number(el.dataset.step); el.classList.toggle('current', n === step); el.classList.toggle('finished', n < step); });
+}
+function selectionEnabled() { return lessonIndex === 0 && step === 2 && !$('#ai-panel').hidden; }
+function selectionUI(enabled) {
+  $('#selection-tools').hidden = !enabled;
+  $('#slide').classList.toggle('selecting-text', enabled && variant === 'text');
+  $('#diagram').classList.toggle('selecting-region', enabled && variant === 'region');
+  $$('[data-block]').forEach(el => { el.hidden = !(enabled && variant === 'block'); });
+}
+function clearSelection() {
+  selected = ''; selectionBox = null; dragStart = null;
+  window.getSelection()?.removeAllRanges();
+  $$('[data-region], [data-block]').forEach(el => { el.classList.remove('chosen'); el.setAttribute('aria-pressed', 'false'); });
+  $$('.block-selected').forEach(el => el.classList.remove('block-selected'));
+  drawBox(); updateSelection();
+}
+function reset() {
+  step = 2; lessonIndex = 0; question = ''; clearSelection();
+  $('.workspace').hidden = false; $('#completed').hidden = true;
+  $('#slide').classList.remove('source-highlight');
+  renderLesson(); returnToSelection();
+}
+function returnToSelection() {
+  step = 2;
+  showPanel(); selectionUI(true); updateSteps(); renderInteraction(); status(instructions[variant]);
+}
+function renderInteraction() {
+  const content = $('#panel-content');
+  content.innerHTML = `<div class="eyebrow">BẠN CHỌN NỘI DUNG</div><h3>Bạn chưa hiểu phần nào?</h3><p id="interaction-guide" class="panel-intro"></p><div id="selected-content" class="context-card"><b>Nội dung được chọn</b><p id="selected-text"></p><div id="selection-preview"></div></div><label for="question">Bạn muốn làm rõ điều gì? <span class="muted">(không bắt buộc)</span></label><textarea id="question" aria-describedby="question-help" autocomplete="off"></textarea><p id="question-help" class="muted">Để trống để giải thích phần đã chọn. Nhập thêm nếu bạn muốn hỏi kỹ hơn hoặc tập trung vào một ví dụ, khái niệm hay câu hỏi cụ thể.</p><div class="panel-actions"><button id="explain-selection" class="primary">Giải thích phần đã chọn →</button><button id="clear-selection" class="secondary">Chọn lại</button></div><p class="simulation">Bản thử dùng câu trả lời dựng sẵn về Double Diamond. AI chưa phân tích văn bản hoặc ảnh thật.</p>`;
+  $('#question').placeholder = questionHint;
+  $('#interaction-guide').textContent = instructions[variant]; $('#question').value = question;
+  $('#question').oninput = e => { question = e.target.value; updateSelection(); };
+  bind('explain-selection', () => { if (selected) showAnswer(); });
+  bind('clear-selection', () => { clearSelection(); status('Đã bỏ lựa chọn. Hãy chọn lại nội dung trong slide.'); });
+  updateSelection(); content.scrollTop = 0;
+}
+function updateSelection() {
+  if (!$('#selected-text')) return;
+  $('#selected-text').textContent = selected || 'Chưa chọn nội dung. Hãy chọn ở slide bên trái.';
+  $('#explain-selection').disabled = !selected;
+  $('#explain-selection').textContent = question.trim() ? 'Gửi câu hỏi về phần đã chọn →' : 'Giải thích phần đã chọn →';
+  const preview = $('#selection-preview'); preview.replaceChildren();
+  if (variant === 'region' && selectionBox) preview.append(regionPreview());
+}
+function choose(text) {
+  if (!selectionEnabled()) return;
+  selected = text.trim(); updateSelection(); status('Đã chọn nội dung. Kiểm tra phạm vi và bấm “Giải thích phần đã chọn”.');
+}
+function regionPreview() {
+  const preview = $('#diagram').cloneNode(true);
+  preview.removeAttribute('id'); preview.classList.remove('selecting-region');
+  preview.querySelectorAll('defs, title, desc, #region-rect').forEach(el => el.remove());
+  preview.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+  preview.querySelectorAll('[marker-start], [marker-end]').forEach(el => { el.removeAttribute('marker-start'); el.removeAttribute('marker-end'); });
+  preview.removeAttribute('aria-labelledby'); preview.setAttribute('aria-label', 'Ảnh vùng sơ đồ đã chọn');
+  const {x,y,w,h} = selectionBox; preview.setAttribute('viewBox', `${x} ${y} ${w} ${h}`);
+  preview.classList.add('region-preview'); return preview;
+}
+// Chọn phản hồi dựng sẵn theo trọng tâm, không tự điền câu hỏi cho học viên.
+function focusedAnswer(request) {
+  const intent = request.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd');
+  if (!intent) return null;
+  if (/vi du|minh hoa|example/.test(intent)) return {
+    title: 'Ví dụ cụ thể về hai loại evidence',
+    text: 'Nhóm quan sát một học viên phải chuyển tab ba lần để tìm lời giải thích cho slide: đây là evidence về problem, cho thấy luồng học bị gián đoạn. Khi thử prototype chọn nội dung, học viên đọc lời giải thích, phân biệt được hai loại evidence và tiếp tục ngay trong bài: đây là evidence về solution từ lượt thử. Cần quan sát thêm nhiều học viên trước khi kết luận giải pháp hiệu quả.'
+  };
+  if (/cau hoi.*(kiem tra|on tap|tu kiem tra)|(?:kiem tra|on tap).*cau hoi|quiz/.test(intent)) return {
+    title: 'Câu hỏi tự kiểm tra',
+    text: '1. Quan sát học viên thường xuyên chuyển tab là evidence về problem hay solution? Vì sao?\n2. Cần quan sát điều gì khi học viên thử hỗ trợ AI để kiểm chứng giải pháp?\nGợi ý đáp án: (1) Problem, vì thể hiện khó khăn hiện tại. (2) Quan sát học viên có tự chọn đúng nội dung, hiểu lời giải thích và tiếp tục bài học được hay không.'
+  };
+  const stages = [
+    ['discover', 'Discover — Khám phá', 'Tìm hiểu trải nghiệm thực tế qua phỏng vấn, quan sát hành vi, bối cảnh và cách xử lý hiện tại. Chưa chọn giải pháp; cần bằng chứng về khó khăn của người học.'],
+    ['define', 'Define — Xác định', 'Tổng hợp bằng chứng để tìm pain pattern và chọn vấn đề quan trọng. Hypothesis Problem mô tả rõ người dùng, tình huống, nhiệm vụ và khó khăn; chưa khẳng định một giải pháp sẽ hiệu quả.'],
+    ['develop', 'Develop — Phát triển', 'Tạo nhiều giả thuyết giải pháp cho cùng vấn đề. Ba cách chọn nội dung ở C1/C2/C3 là các biến thể có thể đưa vào prototype để so sánh độ chính xác của phạm vi chọn và khả năng kiểm soát.'],
+    ['deliver', 'Deliver — Kiểm chứng', 'Cho người học thử prototype, quan sát hành vi và so sánh trade-off. Kết quả giúp kiểm chứng giả định về giải pháp và chọn thay đổi tiếp theo; một lượt thử chưa đủ để kết luận chung.']
+  ];
+  const matches = stages.filter(([name]) => intent.includes(name));
+  if (matches.length === 1) return { title: matches[0][1], text: matches[0][2] };
+  if (/chosen opportunity|chon opportunity|co hoi/.test(intent)) return {
+    title: 'Chosen opportunity nằm ở đâu?',
+    text: 'Đây là điểm chuyển từ Define sang Develop: nhóm đã thu hẹp bằng chứng để chọn vấn đề hoặc cơ hội cần giải quyết, rồi mở rộng các phương án giải pháp. Chọn cơ hội chưa chứng minh một giải pháp cụ thể sẽ hiệu quả.'
+  };
+  return {
+    title: 'Làm rõ thêm nội dung đã chọn',
+    text: 'Evidence về problem trả lời “Người học đang gặp khó khăn gì?”, còn evidence về solution trả lời “Phương án này có giúp người học không?”. Double Diamond tách hai việc: Discover và Define giúp tìm đúng vấn đề; Develop và Deliver giúp tạo và thử giải pháp. Biết người học phải chuyển tab chỉ là cơ sở để đề xuất hỗ trợ AI; hiệu quả của hỗ trợ cần được kiểm chứng qua prototype.'
+  };
+}
+function showAnswer(simple = false) {
+  step = 3; selectionUI(false); showPanel(); updateSteps();
+  const content = $('#panel-content'); content.replaceChildren();
+  const context = document.createElement('div'); context.className = 'context-card';
+  const label = document.createElement('b'); label.textContent = 'Ngữ cảnh đã dùng · Slide 01';
+  const text = document.createElement('p'); text.textContent = `Phần chọn: ${selected}\n${question.trim() ? 'Yêu cầu thêm: ' + question.trim() : 'Yêu cầu: Giải thích phần đã chọn'}`;
+  text.style.whiteSpace = 'pre-line'; context.append(label,text);
+  if (variant === 'region' && selectionBox) context.append(regionPreview());
+  content.append(context);
+  const focus = focusedAnswer(question);
+  if (focus) {
+    const focused = document.createElement('div'); focused.className = 'evidence';
+    const heading = document.createElement('b'); heading.textContent = focus.title;
+    const explanation = document.createElement('p'); explanation.textContent = focus.text; explanation.style.whiteSpace = 'pre-line';
+    focused.append(heading, explanation); content.append(focused);
+  }
+  if (simple) {
+    const revised = document.createElement('div'); revised.className = 'evidence';
+    revised.innerHTML = '<b>Cách diễn đạt đơn giản hơn</b><p>Hãy nghĩ đến hai câu hỏi: “Học viên đang gặp khó khăn gì?” (problem) và “Cách hỗ trợ này có giúp họ không?” (solution). Chuyển tab là dấu hiệu của khó khăn; thử AI và quan sát người học mới giúp kiểm chứng giải pháp.</p>';
+    content.append(revised);
+  }
+  content.append($('#answer-template').content.cloneNode(true));
+  const actions = document.createElement('div'); actions.className = 'panel-actions';
+  actions.innerHTML = '<button id="again" class="secondary">Giải thích lại</button><button id="edit" class="secondary">Sửa yêu cầu</button><button id="change-selection" class="secondary">Đổi phần chọn</button><button id="approve" class="primary">Đã hiểu · Tiếp tục →</button><button id="undo" class="secondary">Hủy kết quả · Quay lại</button>';
+  content.append(actions);
+  bind('source', () => { $('#slide').classList.add('source-highlight'); $('#slide').scrollIntoView({behavior:'smooth',block:'center'}); status('Đối chiếu slide: Chosen opportunity nối Define với Develop.'); });
+  bind('again', () => { showAnswer(true); status('Đã hiển thị cách diễn đạt đơn giản hơn, kèm nội dung đối chiếu.'); });
+  bind('edit', editRequest); bind('approve', advanceLesson);
+  bind('change-selection', () => { clearSelection(); returnToSelection(); });
+  bind('undo', () => { returnToSelection(); status('Đã hủy kết quả. Bạn có thể chọn lại nội dung hoặc gửi lại yêu cầu.'); });
+  content.scrollTop = 0; status('Đọc giải thích và đối chiếu slide. Bạn quyết định sửa, hủy hoặc tiếp tục.');
+}
+function editRequest() {
+  const content = $('#panel-content');
+  content.innerHTML = '<div class="eyebrow">SỬA YÊU CẦU</div><h3>Bạn cần làm rõ thêm điều gì?</h3><label for="edited-question">Câu hỏi của bạn (không bắt buộc)</label><textarea id="edited-question" autocomplete="off"></textarea><p class="muted">Bạn có thể xóa câu hỏi để trở về giải thích chung cho phần đã chọn.</p><p class="simulation">Bản thử dùng phản hồi dựng sẵn theo trọng tâm: ví dụ, giai đoạn, câu hỏi tự kiểm tra hoặc giải thích thêm về hai loại evidence.</p><div class="panel-actions"><button id="send-edit" class="primary">Gửi yêu cầu đã sửa</button><button id="cancel-edit" class="secondary">Hủy sửa</button></div>';
+  $('#edited-question').placeholder = questionHint;
+  $('#edited-question').value = question;
+  bind('send-edit', () => { question = $('#edited-question').value.trim(); showAnswer(); });
+  bind('cancel-edit', () => showAnswer()); $('#edited-question').focus();
+}
+function renderLesson() {
+  $('.workspace').hidden = false; $('#completed').hidden = true;
+  $('#lesson-content').hidden = false;
+  $('.steps').hidden = lessonIndex !== 0;
+  $('#slide').hidden = lessonIndex !== 0;
+  $('#lesson-slide-2').hidden = lessonIndex !== 1;
+  $('#lesson-slide-3').hidden = lessonIndex !== 2;
+  $('#lesson-heading-title').textContent = lessonTitles[lessonIndex];
+  $('#slide-counter').textContent = `Slide 0${lessonIndex + 1} / 03 · Double Diamond`;
+  $('#lesson-progress').textContent = `${lessonIndex + 1} / 3`;
+  $('#lesson-progress-bar').style.width = `${(lessonIndex + 1) / 3 * 100}%`;
+  $$('[data-lesson]').forEach(el => { const n = Number(el.dataset.lesson); el.classList.toggle('active', n === lessonIndex); el.classList.toggle('done', n < lessonIndex); });
+  $('#previous-slide').hidden = lessonIndex === 0;
+  $('#task').hidden = lessonIndex !== 0;
+  $('#continue').hidden = false;
+  $('#continue').textContent = lessonIndex === 2 ? 'Hoàn thành bài học ✓' : 'Tiếp tục bài học →';
+}
+function navigateLesson(index) {
+  lessonIndex = Math.max(0, Math.min(2, index));
+  showPanel(); selectionUI(false); renderLesson();
+  if (lessonIndex === 0) {
+    if (step === 3 && selected) showAnswer();
+    else returnToSelection();
+  } else renderContinuationPanel();
+  status(`Slide ${lessonIndex + 1} / 3 · ${lessonTitles[lessonIndex]}`);
+  $('.learning').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function renderContinuationPanel() {
+  const content = $('#panel-content');
+  content.innerHTML = '<div class="eyebrow">BỐI CẢNH BÀI HỌC</div><h3 id="current-slide-name"></h3><p class="panel-intro">Trợ lý học tập vẫn ở đây. Để chọn nội dung cần giải thích trong sơ đồ Double Diamond, bạn có thể quay lại slide đầu.</p><button id="return-to-diamond" class="secondary">← Quay lại Double Diamond</button>';
+  $('#current-slide-name').textContent = lessonTitles[lessonIndex];
+  if (selected) {
+    const context = document.createElement('div'); context.className = 'context-card';
+    const label = document.createElement('b'); label.textContent = 'Phần đã chọn ở slide Double Diamond';
+    const text = document.createElement('p'); text.textContent = selected;
+    context.append(label,text); content.append(context);
+  }
+  bind('return-to-diamond', () => navigateLesson(0)); content.scrollTop = 0;
+}
+function advanceLesson() {
+  if (lessonIndex < 2) navigateLesson(lessonIndex + 1);
+  else complete();
+}
+function complete() { selectionUI(false); showPanel(); $('#lesson-content').hidden = true; $('.steps').hidden = true; $('#completed').hidden = false; status(`Đã hoàn thành 3 slide · ${labels[variant]}.`); }
+function captureText() {
+  if (variant !== 'text' || !selectionEnabled()) return;
+  const selection = window.getSelection();
+  if (selection && selection.rangeCount && $('#slide').contains(selection.anchorNode) && $('#slide').contains(selection.focusNode) && !$('#selection-tools').contains(selection.anchorNode)) {
+    const text = selection.toString().trim(); if (text) choose(text);
+  }
+}
+$('#slide').addEventListener('mouseup', captureText); $('#slide').addEventListener('keyup', captureText);
+function point(event) {
+  const r = $('#diagram').getBoundingClientRect();
+  return {x: Math.max(0,Math.min(900,(event.clientX-r.left)/r.width*900)), y: Math.max(0,Math.min(350,(event.clientY-r.top)/r.height*350))};
+}
+function drawBox() {
+  const rect = $('#region-rect'); rect.style.display = selectionBox ? '' : 'none';
+  if (selectionBox) Object.entries({x:selectionBox.x,y:selectionBox.y,width:selectionBox.w,height:selectionBox.h}).forEach(([key,value]) => rect.setAttribute(key,value));
+}
+function regionLabel() {
+  const mid = selectionBox.x + selectionBox.w/2;
+  const area = selectionBox.x < 390 && selectionBox.x + selectionBox.w > 520 ? 'Double Diamond' : mid < 390 ? 'Discover / Define' : mid > 520 ? 'Develop / Deliver' : 'Chosen opportunity';
+  return `Vùng sơ đồ ${area} · ${Math.round(selectionBox.w)} × ${Math.round(selectionBox.h)} (tọa độ slide)`;
+}
+$('#diagram').addEventListener('pointerdown', event => {
+  if (variant !== 'region' || !selectionEnabled() || event.button !== 0) return;
+  event.preventDefault(); previousBox = selectionBox; dragStart = point(event); activePointer = event.pointerId;
+  $('#diagram').setPointerCapture(event.pointerId);
+});
+$('#diagram').addEventListener('pointermove', event => {
+  if (!dragStart || event.pointerId !== activePointer) return;
+  const end = point(event); selectionBox = {x:Math.min(dragStart.x,end.x),y:Math.min(dragStart.y,end.y),w:Math.abs(end.x-dragStart.x),h:Math.abs(end.y-dragStart.y)}; drawBox();
+});
+$('#diagram').addEventListener('pointerup', event => {
+  if (!dragStart || event.pointerId !== activePointer) return;
+  const end = point(event); selectionBox = {x:Math.min(dragStart.x,end.x),y:Math.min(dragStart.y,end.y),w:Math.abs(end.x-dragStart.x),h:Math.abs(end.y-dragStart.y)};
+  dragStart = null; activePointer = null;
+  if (selectionBox.w < 12 || selectionBox.h < 12) { selectionBox = previousBox; drawBox(); status('Vùng chọn quá nhỏ. Hãy nhấn giữ và kéo chuột để khoanh vùng rõ hơn.'); return; }
+  $$('[data-region]').forEach(el => { el.classList.remove('chosen'); el.setAttribute('aria-pressed','false'); }); drawBox(); choose(regionLabel());
+});
+$('#diagram').addEventListener('pointercancel', () => { dragStart = null; activePointer = null; selectionBox = previousBox; drawBox(); });
+const presets = { problem: {x:90,y:45,w:365,h:245}, opportunity: {x:395,y:140,w:120,h:115}, solution: {x:455,y:45,w:365,h:245}, all: {x:45,y:20,w:810,h:315} };
+$$('[data-region]').forEach(el => el.onclick = () => {
+  if (variant !== 'region' || !selectionEnabled()) return;
+  selectionBox = {...presets[el.dataset.region]};
+  $$('[data-region]').forEach(btn => { const chosen = btn === el; btn.classList.toggle('chosen', chosen); btn.setAttribute('aria-pressed', String(chosen)); }); drawBox(); choose(regionLabel());
+});
+$$('[data-block]').forEach(el => el.onclick = () => {
+  if (variant !== 'block' || !selectionEnabled()) return;
+  const block = document.getElementById(el.dataset.block);
+  $$('.block-selected').forEach(node => node.classList.remove('block-selected')); block.classList.add('block-selected');
+  $$('[data-block]').forEach(btn => { const chosen = btn === el; btn.classList.toggle('chosen', chosen); btn.setAttribute('aria-pressed', String(chosen)); });
+  const content = el.dataset.block === 'diagram-block'
+    ? 'Sơ đồ Double Diamond: Discover → Define → Chosen opportunity → Develop → Deliver. Viên kim cương 1 tìm đúng vấn đề; viên kim cương 2 tìm đúng giải pháp.'
+    : [...block.querySelectorAll('h3,h4,p')].map(node => node.innerText).join('\n');
+  choose(content);
+});
+bind('reset', reset); bind('restart-complete', reset);
+bind('continue', advanceLesson);
+bind('previous-slide', () => navigateLesson(lessonIndex - 1));
+bind('review-slides', () => navigateLesson(2));
+reset();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototype Option A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<style>
+  /* ----- Phần riêng của Option A: bấm vào thuật ngữ để hiện pop-up nhỏ ngay bên dưới ----- */
+  .slide-stage, .slide-stage svg text { user-select: none; }
+  .term { cursor: pointer; }
+  .col li.term:hover, .col h4.term:hover, .slide-title .term:hover { background: rgba(255, 200, 0, .3); border-radius: 4px; }
+  svg text.term:hover { text-decoration: underline; text-decoration-color: rgba(200, 140, 0, .9); text-underline-offset: 4px; text-decoration-thickness: 2px; }
+  .term.on { background: rgba(255, 200, 0, .38); border-radius: 4px; }
+  svg text.term.on { text-decoration: underline; text-decoration-color: rgba(200, 140, 0, .9); text-underline-offset: 4px; text-decoration-thickness: 2px; background: none; }
+
+  .term-pop {
+    position: fixed; z-index: 50; width: min(340px, calc(100vw - 16px)); max-height: 240px;
+    padding: 12px 34px 12px 14px; overflow-y: auto;
+    background: #fff; border: 1px solid #d9dee6; border-radius: 10px;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, .18);
+    font-size: 13.5px; line-height: 1.55; color: var(--ink);
+  }
+  .term-pop::before {
+    content: ""; position: absolute; top: -6px; left: var(--cx, 20px); width: 10px; height: 10px; margin-left: -5px;
+    background: #fff; border-left: 1px solid #d9dee6; border-top: 1px solid #d9dee6; transform: rotate(45deg);
+  }
+  .term-pop.above::before { top: auto; bottom: -6px; transform: rotate(225deg); }
+  .tp-x { position: absolute; top: 6px; right: 6px; width: 24px; height: 24px; border-radius: 6px; display: grid; place-items: center; color: #6b7280; }
+  .tp-x .i { width: 14px; height: 14px; }
+  .tp-sec h3 { margin: 10px 0 3px; font-size: 13.5px; }
+  .tp-sec:first-child h3 { margin-top: 0; }
+  .tp-sec p { margin: 3px 0; }
+  .tp-sec ul { margin: 5px 0; padding-left: 16px; }
+  .tp-sec li { margin: 4px 0; }
+
+  .fac-reset {
+    position: fixed; left: 12px; bottom: 12px; z-index: 60; padding: 6px 10px; border-radius: 6px;
+    background: #111827; color: #fff; font-size: 12px; opacity: .8;
+  }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script src="common.js"></script>
+<script src="content.js"></script>
+<script>
+  const { stage, params } = Proto.mount(document.getElementById("app"));
+  const C = window.DOUBLE_DIAMOND;
+
+  // ---- Thuật ngữ bấm được: tiêu đề cột, các dòng trong cột, nhãn trong biểu đồ, hai từ khoá trong tiêu đề slide ----
+  const NOT_TERMS = new Set(["Time", "Alternatives"]);
+  const termOf = el => (el.dataset.term || el.textContent).replace(/\s+/g, " ").trim();
+
+  // Nội dung giải thích chỉ có cho slide Double Diamond (trang 5), nên chỉ trang này có thuật ngữ bấm được.
+  function bindTerms() {
+    hide();
+    if (stage.dataset.slide !== "5") return;
+    stage.querySelectorAll(".col h4, .col li, .slide-title .p, .slide-title .s, svg text").forEach(el => {
+      if (!NOT_TERMS.has(el.textContent.trim())) el.classList.add("term");
+    });
+  }
+
+  // ---- Pop-up (dựng một lần, ẩn cho tới khi người học bấm vào một thuật ngữ) ----
+  const pop = document.createElement("div");
+  pop.className = "term-pop";
+  pop.hidden = true;
+  pop.setAttribute("role", "dialog");
+  pop.innerHTML = `
+    <button class="tp-x" aria-label="Đóng"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    <div class="tp-body"></div>`;
+  document.body.append(pop);
+  const popBody = pop.querySelector(".tp-body");
+
+  // ---- Chọn đoạn kiến thức theo thuật ngữ đã bấm ----
+  const STAGES = [
+    ["discover", /discover|problem interview|past story|behavior\s*&\s*workaround|quan sát context/g],
+    ["define", /define|synthesis note|pain pattern|chọn opportunity|chosen opportunity|learning question/g],
+    ["develop", /develop|diverge cơ chế|standard|wild|micro-prototype|multi-option/g],
+    ["deliver", /deliver|prototype interview|quan sát behavior|compare trade-off|next iteration|\bnext\b/g]
+  ];
+
+  function pickSections(text) {
+    let rest = text.toLowerCase();
+    const hit = new Set();
+    for (const [id, re] of STAGES) {
+      if (rest.search(re) !== -1) hit.add(id);
+      rest = rest.replace(re, " ");
+    }
+    const thinking = /divergence|convergence/.test(rest);
+    rest = rest.replace(/divergence|convergence/g, " ");
+    const d1 = /day\s*17|finding the\s*problem|problem|pain/.test(rest);
+    const d2 = /day\s*18|finding the\s*solution|solution/.test(rest);
+
+    const ids = [];
+    if (d1) ids.push("diamond1"); else for (const s of ["discover", "define"]) if (hit.has(s)) ids.push(s);
+    if (d2) ids.push("diamond2"); else for (const s of ["develop", "deliver"]) if (hit.has(s)) ids.push(s);
+    if (thinking) ids.push("thinking");
+
+    // Không khớp ý nào: trình bày tổng quan.
+    return ids.length ? ids : ["overview"];
+  }
+
+  function sectionHtml(id) {
+    const s = C[id];
+    return `<section class="tp-sec">
+      ${s.title ? `<h3>${s.title}</h3>` : ""}
+      ${s.lead ? `<p>${s.lead}</p>` : ""}
+      ${(s.paras || []).map(p => `<p>${p}</p>`).join("")}
+      ${s.items ? `<ul>${s.items.map(i => `<li><b>${i.term}</b>${i.text}</li>`).join("")}</ul>` : ""}
+    </section>`;
+  }
+
+  // ---- Luồng tương tác: bấm thuật ngữ là hiện pop-up ngay dưới nó ----
+  let current = null;       // thuật ngữ đang mở pop-up
+  let reopenGuard = null;   // thuật ngữ vừa bị đóng bởi chính cú bấm này, để bấm lại thì đóng hẳn
+
+  let currentParts = [];
+
+  function hide() {
+    pop.hidden = true;
+    currentParts.forEach(p => p.classList.remove("on"));
+    currentParts = [];
+    current = null;
+  }
+
+  function show(el) {
+    hide();
+    current = el;
+    currentParts = el.dataset.term ? [...stage.querySelectorAll(`[data-term="${el.dataset.term}"]`)] : [el];
+    currentParts.forEach(p => p.classList.add("on"));
+    popBody.innerHTML = pickSections(termOf(el)).map(sectionHtml).join("");
+    pop.scrollTop = 0;
+    pop.hidden = false;
+
+    // Đặt pop-up ngay dưới thuật ngữ (cả cụm nếu thuật ngữ gồm nhiều dòng); hết chỗ phía dưới thì lật lên trên.
+    const rects = currentParts.map(p => p.getBoundingClientRect());
+    const r = {
+      left: Math.min(...rects.map(x => x.left)), right: Math.max(...rects.map(x => x.right)),
+      top: Math.min(...rects.map(x => x.top)), bottom: Math.max(...rects.map(x => x.bottom))
+    };
+    r.width = r.right - r.left;
+    const w = pop.offsetWidth, h = pop.offsetHeight, gap = 10, edge = 8;
+    const left = Math.min(Math.max(edge, r.left), window.innerWidth - w - edge);
+    const above = r.bottom + gap + h > window.innerHeight - edge && r.top - gap - h >= edge;
+    pop.classList.toggle("above", above);
+    pop.style.left = left + "px";
+    pop.style.top = (above ? r.top - gap - h : r.bottom + gap) + "px";
+    pop.style.setProperty("--cx", Math.min(Math.max(16, r.left + r.width / 2 - left), w - 24) + "px");
+  }
+
+  document.addEventListener("mousedown", e => {
+    if (pop.contains(e.target)) return;
+    reopenGuard = current;
+    hide();
+  });
+  stage.addEventListener("click", e => {
+    const el = e.target.closest(".term");
+    const sameTerm = el && reopenGuard && termOf(el) === termOf(reopenGuard);
+    reopenGuard = null;
+    if (el && !sameTerm) show(el);
+  });
+  pop.querySelector(".tp-x").addEventListener("click", hide);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") hide(); });
+  window.addEventListener("resize", hide);
+  window.addEventListener("scroll", e => { if (!pop.contains(e.target)) hide(); }, true);
+
+  bindTerms();
+  document.addEventListener("proto:slidechange", bindTerms);
+
+  // Đường reset cho người điều phối: thêm ?facilitator=1 vào URL để hiện nút ở góc dưới trái.
+  if (params.get("facilitator") === "1") {
+    const reset = document.createElement("button");
+    reset.className = "fac-reset";
+    reset.textContent = "Bắt đầu lại";
+    reset.addEventListener("click", hide);
+    document.body.append(reset);
+  }
+</script>
+</body>
+</html>
